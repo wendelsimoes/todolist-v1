@@ -10,8 +10,21 @@
 
 <body>
     <h1>
-        <%= currentDay %> list
+        <%= currentDay %>
     </h1>
+
+    <ul>
+        <% for(let i=0; i < newItems.length; i++) { %>
+            <li>
+                <%= newItems[i] %>
+            </li>
+            <% } %>
+    </ul>
+
+    <form action="/" method="post">
+        <input type="text" name="newItem" placeholder="New item" autofocus>
+        <button type="submit">Add</button>
+    </form>
 </body>
 
 </html>
