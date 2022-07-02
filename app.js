@@ -1,12 +1,21 @@
+// Import express
 const express = require("express");
+
+// Import body-parser
 const bodyParser = require("body-parser");
+
 const port = 3000;
 
 const app = express();
 
+// Setup EJS
 app.set("view engine", "ejs");
 
+// Setup body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve public static folder
+app.use(express.static("public"));
 
 var items = [];
 
