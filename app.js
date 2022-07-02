@@ -1,8 +1,9 @@
 // Import express
 const express = require("express");
-
 // Import body-parser
 const bodyParser = require("body-parser");
+// Import date module
+const date = require(__dirname + "/date.js");
 
 const port = 3000;
 
@@ -20,17 +21,7 @@ app.use(express.static("public"));
 var items = [];
 
 app.get("/", function (req, res) {
-  const today = new Date();
-
-  options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-  };
-
-  const dayOfWeek = today.toLocaleDateString("en-US", options);
-
-  res.render("list", { currentDay: dayOfWeek, newItems: items });
+  res.render("list", { currentDay: date(), newItems: items });
 });
 
 app.post("/", function (req, res) {
