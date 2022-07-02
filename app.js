@@ -8,17 +8,8 @@ app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
   const today = new Date();
-  const currentDay = today.getDay();
   const dayOfWeek = getDayOfWeek(today);
-  let dayInfo = "";
-
-  if (currentDay === 6 || currentDay === 0) {
-    dayInfo = "weekend";
-  } else {
-    dayInfo = "day of week";
-  }
-
-  res.render("list", { currentDay: dayOfWeek, dayInfo: dayInfo });
+  res.render("list", { currentDay: dayOfWeek });
 });
 
 app.listen(port, function () {
